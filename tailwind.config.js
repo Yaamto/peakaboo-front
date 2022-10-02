@@ -14,9 +14,7 @@ module.exports = {
       colors: {
         'background': '#292931',
         'dark-gray': '#26262E',
-        'dark-gray-hover': '#1F1F25',
-        'yellow': '#26262E',
-        'yellow-hover': '#DBB80C'
+        'yellow': '#FFD60A'
       },
       fontFamily: {
         sans: ['Dosis', 'sans-serif']
