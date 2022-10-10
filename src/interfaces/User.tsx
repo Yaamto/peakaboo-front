@@ -14,13 +14,13 @@ export interface IUser {
     createdAt?: Date,
     updatedAt?: Date
 }
-export type UserProps = {
-    user: IUser;
-}
-export type ApiResponse = {
-    msg: string;
-    status: string;
-    usrs: IUser[];
-    user?: IUser;
-};
+// export type UserProps = {
+//     user: IUser;
+// }
+// export type ApiResponse = {
+//     msg: string;
+//     status: string;
+//     usrs: IUser[];
+//     user?: IUser;
+// };
 

@@ -1,16 +1,13 @@
-import { IUser, ApiResponse } from "../interfaces/User"
-import { AxiosResponse } from "axios";
-import axios from "axios"
+import { IUser } from "../interfaces/User"
 
-export const login = async (data: IUser): Promise<AxiosResponse<ApiResponse>> => {
-    const response: AxiosResponse<ApiResponse> = await axios({
-        method: "post",
-        url: `${process.env.REACT_APP_API_URL}auth/login`,
-        withCredentials: true,
-        data: {
-            email: data.email,
-            password: data.password
-        },
+export const login = async (data: IUser) => {
+
+    const response = await fetch(`${process.env.REACT_APP_API_URL}auth/login`, {
+        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify({ email: data.email, password: data.password })
     })
-    return response
+    const res = await response.json()
+    return res.user as IUser
 }

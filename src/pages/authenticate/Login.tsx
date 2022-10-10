@@ -3,8 +3,8 @@ import { IUser } from '../../interfaces/User';
 import { login } from "../../services/UserService"
 const Login: React.FC = (): JSX.Element => {
     const [user, setUser] = useState<IUser | {}>()
-    const [test, setTest] = useState<IUser | {}>()
-    console.log(test)
+    const [userResp, setUserResp] = useState<IUser | {}>()
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
         setUser((user) => ({
@@ -13,9 +13,10 @@ const Login: React.FC = (): JSX.Element => {
         }));
     };
     const handleLogin = (e: React.FormEvent, data: IUser | any): void => {
+
         e.preventDefault()
-        login(data).then((res) => setTest(res.data.user))
-        console.log(test)
+        login(data).then((res) => setUserResp(res))
+        console.log(userResp)
 
     }
     return (
