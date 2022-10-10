@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Home from "./pages/Home"
 import Register from "./pages/authenticate/Register"
 import Login from "./pages/authenticate/Login"
+
 import {
   BrowserRouter,
   Routes,
@@ -12,6 +13,7 @@ function App() {
 
 
   return (
+
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}>
@@ -50,6 +52,7 @@ function App() {
       </Route> */}
       </Routes>
     </BrowserRouter>
+
   );
 }
 

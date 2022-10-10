@@ -14,7 +14,9 @@ module.exports = {
       colors: {
         'background': '#292931',
         'dark-gray': '#26262E',
-        'yellow': '#FFD60A'
+        'yellow': '#FFD60A',
+        'purpleD': '#5C11FF',
+        'purpleL': '#A981FF'
       },
       fontFamily: {
         sans: ['Dosis', 'sans-serif']
