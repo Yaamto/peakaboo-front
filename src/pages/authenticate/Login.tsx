@@ -6,7 +6,6 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const Login: React.FC = (): JSX.Element => {
     const [user, setUser] = useState<IUser>()
-    const [isError, setIsError] = useState<string>("")
     const navigate = useNavigate()
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,15 +19,22 @@ const Login: React.FC = (): JSX.Element => {
 
         e.preventDefault()
         if (user === undefined || user.email === "" || user.password === "") {
-            setIsError("Fill all the fields")
+            toast.error('Fill all the fields', {
+                duration: 2000
+            });
         } else {
             login(data).then((res) => {
                 if (res !== undefined) {
-                    setIsError("")
-                    navigate("/")
-                    toast.success('Successfully authenticate!');
+                    toast.success('Successfully authenticate!', {
+                        duration: 900
+                    });
+                    setTimeout(() => {
+                        navigate("/")
+                    }, 1000);
                 } else {
-                    setIsError("Incorrect email or password ")
+                    toast.error('Incorrect password or email', {
+                        duration: 2000
+                    });
                 }
             })
         }
@@ -44,7 +50,6 @@ const Login: React.FC = (): JSX.Element => {
             <form action="" onSubmit={(e: React.FormEvent) => handleLogin(e, user)} className="bg-white p-4 w-96 h-1/2 flex flex-col items-center rounded-3xl  ">
                 <p className='text-center Dosis text-purpleD text-3xl mt-1'>Peekaboo !</p>
                 <img src={process.env.PUBLIC_URL + 'profile.svg'} alt="" width="80" height="80" className='mx-auto mt-3' />
-                <p className='error text-red-600 text-center mt-3'>{isError !== "" ? isError : ""}</p>
                 <div className='flex flex-col items-center'>
                     <label htmlFor="email" className='mt-3 self-start text-purpleD'>Email</label>
                     <input type="text" name='email' className='mt-1 px-2 py-1 outline-0 border-b-2 border-purpleL' onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)} placeholder="Email..." />

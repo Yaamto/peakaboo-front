@@ -9,7 +9,11 @@ const Navbar = () => {
         getAuth().then(res => setIsAuth(res))
     }, [])
     const handleLogout = () => {
-        logout().then(() => navigate("/login"))
+        logout().then(() => {
+            setTimeout(() => {
+                navigate("/login")
+            }, 1000);
+        })
     }
     return (
         <>
