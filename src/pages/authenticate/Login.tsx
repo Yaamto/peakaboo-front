@@ -1,8 +1,11 @@
 import React, { FC, useState } from 'react';
 import { IUser } from '../../interfaces/User';
 import { login } from "../../services/UserService"
-import { useNavigate } from 'react-router-dom'
+import {
+    useNavigate, NavLink
+} from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast';
+
 
 const Login: React.FC = (): JSX.Element => {
     const [user, setUser] = useState<IUser>()
@@ -57,7 +60,9 @@ const Login: React.FC = (): JSX.Element => {
                     <input type="password" name='password' className='mt-1 px-2 py-1 outline-0 border-b-2 border-purpleL' onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)} placeholder="Password..." />
                 </div>
                 <button type='submit' className='mt-8 text-purpleD border border-purpleD px-4 py-2 rounded-xl hover:text-white hover:bg-purpleD duration-300'>Submit</button>
+                <p className='pt-6 hover:scale-105 duration-300'> <NavLink to="/register" className="text-purpleD">Click here to register</NavLink> </p>
             </form>
+
         </div>
     );
 };

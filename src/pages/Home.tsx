@@ -1,11 +1,15 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import PostToAdd from '../components/PostToAdd';
+import { IUser } from '../interfaces/User';
 
-const Home = () => {
+const Home = (userInfo: IUser) => {
+
     return (
-        <div>
-            <Navbar />
-            <h1>Home</h1>
+        <div className='h-screen bg-gray-100' >
+            <Navbar {...userInfo} />
+            <PostToAdd {...userInfo} />
+
         </div>
     );
 };
