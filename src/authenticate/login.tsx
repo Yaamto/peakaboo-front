@@ -8,10 +8,13 @@ import {
 
 
 
-const Login: React.FC = (): JSX.Element => {
+const Login = ({ isAuth, setIsAuth }: any) => {
     const [user, setUser] = useState<IUser>()
     const navigate = useNavigate()
     const toast = useToast()
+
+
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
         setUser((user) => ({
@@ -40,8 +43,10 @@ const Login: React.FC = (): JSX.Element => {
                         duration: 900,
                         isClosable: true,
                     })
+                    setIsAuth(true)
                     setTimeout(() => {
                         navigate("/")
+
                     }, 1000);
                 } else {
                     toast({
