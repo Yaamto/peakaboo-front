@@ -5,7 +5,7 @@ let isAuth = true
 
 export async function getAuth() {
     try {
-        const res = await fetch(`${process.env.REACT_APP_API_URL}jwtid`, {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/jwtid`, {
             headers: {
                 'Content-Type': 'application/json'
             },

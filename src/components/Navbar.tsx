@@ -39,7 +39,7 @@ const Navbar = ({ user, setUser, setIsAuth }: any) => {
                             <Menu>
                                 <MenuButton as={Button} rightIcon={<BsChevronDown />}>
                                     <div className='flex items-center my-2 rounded hover:cursor-pointer hover:bg-purpleD duration-300'>
-                                        <img src={user?.profilePic !== "" ? user?.profilePic : process.env.PUBLIC_URL + "avatar" + "4" + ".svg"} alt="" width="40" />
+                                        <img src={user?.profilePic !== "" ? process.env.REACT_APP_API_URL + user?.profilePic : process.env.PUBLIC_URL + "avatar" + "4" + ".svg"} alt="" width="40" />
                                         <span>{user?.username}</span>
                                     </div>
                                 </MenuButton>
@@ -53,7 +53,7 @@ const Navbar = ({ user, setUser, setIsAuth }: any) => {
                     </div>
                     <div className="block lg:hidden">
                         <button
-                            className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
+                            className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400"
                             onClick={() => toggleExpansion(!isExpanded)}
                         >
                             <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>

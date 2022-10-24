@@ -31,7 +31,6 @@ function App() {
 
   return (
     <ChakraProvider>
-
       <BrowserRouter>
         <Navbar user={user} setUser={setUser} setIsAuth={setIsAuth} />
         <Routes>

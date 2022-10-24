@@ -10,7 +10,7 @@ export const post = async (data: IPost) => {
         for (let i = 0; i < data.media.length; i++) {
             formData.append('media', data.media[i])
         }
-        const response = await fetch(`${process.env.REACT_APP_API_URL}post/addPost`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/post/addPost`, {
             method: "POST",
             credentials: "include",
             body: formData
@@ -22,4 +22,16 @@ export const post = async (data: IPost) => {
     } catch (err) {
         return err
     }
+}
+
+export const getFeed = async (page: number) => {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/post/feed/` + page, {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: "include",
+    })
+    const res = await response.json()
+
+    return res;
 }

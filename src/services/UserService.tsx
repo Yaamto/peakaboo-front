@@ -2,7 +2,7 @@ import { IUser } from "../interfaces/User"
 
 export const login = async (data: IUser) => {
     try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}auth/login`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
             headers: { 'Content-Type': 'application/json' },
             method: "POST",
             credentials: "include",
@@ -18,7 +18,7 @@ export const login = async (data: IUser) => {
 }
 export const register = async (data: IUser) => {
     try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}auth/register`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/register`, {
             headers: { 'Content-Type': 'application/json' },
             method: "POST",
             credentials: "include",
@@ -39,7 +39,7 @@ export const register = async (data: IUser) => {
 
 export const logout = async () => {
     try {
-        await fetch(`${process.env.REACT_APP_API_URL}auth/logout`, {
+        await fetch(`${process.env.REACT_APP_API_URL}/auth/logout`, {
             headers: { 'Content-Type': 'application/json' },
             method: "POST",
             credentials: "include",

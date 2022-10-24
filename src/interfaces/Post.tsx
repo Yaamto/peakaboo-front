@@ -1,5 +1,7 @@
+import { IUser } from "./User";
+
 export interface IPost {
-    poster?: object,
+    poster?: IUser,
     content?: string | any,
     sortDate?: Date,
     media?: [File] | any,
@@ -7,7 +9,7 @@ export interface IPost {
     edited?: boolean,
     _id?: string,
     likes?: [],
-    reposters?: [],
+    reposters?: IUser,
     createdAt?: Date,
     updatedAt?: Date,
 

@@ -65,7 +65,7 @@ const Login = ({ isAuth, setIsAuth }: any) => {
     return (
         <div className='bg-gradient-to-r from-purpleD to-purpleL h-screen flex justify-center items-center'>
 
-            <form action="" onSubmit={(e: React.FormEvent) => handleLogin(e, user)} className="bg-white p-4 w-96 h-1/2 flex flex-col items-center rounded-3xl  ">
+            <form action="" onSubmit={(e: React.FormEvent) => handleLogin(e, user)} className="bg-white p-4 w-96 h-auto flex flex-col items-center rounded-3xl  ">
                 <p className='text-center Dosis text-purpleD text-3xl mt-1'>Peekaboo !</p>
                 <img src={process.env.PUBLIC_URL + 'profile.svg'} alt="" width="80" height="80" className='mx-auto mt-3' />
                 <div className='flex flex-col items-center'>
