@@ -50,3 +50,48 @@ export const logout = async () => {
     }
 
 }
+
+export const singleUser = async (id: any) => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/user/getsingle/${id}`, {
+            headers: { 'Content-Type': 'application/json' },
+            method: "GET",
+            credentials: "include",
+        })
+
+        const res = await response.json()
+        console.log(res)
+        return res
+
+    } catch (err) {
+        return err
+    }
+}
+export const follow = async (id: any) => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/user/follow/${id}`, {
+            headers: { 'Content-Type': 'application/json' },
+            method: "PATCH",
+            credentials: "include",
+        })
+        const res = await response.json()
+        console.log(res)
+        return res
+    } catch (err) {
+        return err
+    }
+}
+export const unfollow = async (id: any) => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/user/unfollow/${id}`, {
+            headers: { 'Content-Type': 'application/json' },
+            method: "PATCH",
+            credentials: "include",
+        })
+        const res = await response.json()
+        console.log(res)
+        return res
+    } catch (err) {
+        return err
+    }
+}

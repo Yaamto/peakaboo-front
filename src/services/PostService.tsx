@@ -35,3 +35,15 @@ export const getFeed = async (page: number) => {
 
     return res;
 }
+
+export const singlePost = async (id: any) => {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/post/singlePost/` + id, {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: "include",
+    })
+    const res = await response.json()
+
+    return res;
+}

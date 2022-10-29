@@ -11,7 +11,8 @@ import {
     MenuGroup,
     MenuOptionGroup,
     MenuDivider,
-    Button
+    Button,
+    Avatar
 } from '@chakra-ui/react'
 import { BsChevronDown } from 'react-icons/bs'
 import { logout } from '../services/UserService';
@@ -39,8 +40,8 @@ const Navbar = ({ user, setUser, setIsAuth }: any) => {
                             <Menu>
                                 <MenuButton as={Button} rightIcon={<BsChevronDown />}>
                                     <div className='flex items-center my-2 rounded hover:cursor-pointer hover:bg-purpleD duration-300'>
-                                        <img src={user?.profilePic !== "" ? process.env.REACT_APP_API_URL + user?.profilePic : process.env.PUBLIC_URL + "avatar" + "4" + ".svg"} alt="" width="40" />
-                                        <span>{user?.username}</span>
+                                        <Avatar size="sm" src={user?.profilePic !== "" && process.env.REACT_APP_API_URL + user?.profilePic} />
+                                        <span className='ml-3'>{user?.username}</span>
                                     </div>
                                 </MenuButton>
                                 <MenuList>
@@ -63,7 +64,7 @@ const Navbar = ({ user, setUser, setIsAuth }: any) => {
                         } w-full block lg:ml-auto lg:flex lg:items-center lg:w-auto`}>
                         <div className="text-sm lg:flex-grow lg:flex items-center">
                             <NavLink to="/" className="block mt-8 mx-5 lg:inline-block lg:mt-0 mr-4"><img src={process.env.PUBLIC_URL + "home.png"} alt="" width="25px" /></NavLink>
-                            <NavLink to="/" className="block mt-8 mx-5 lg:inline-block lg:mt-0 mr-4"><img src={process.env.PUBLIC_URL + "comment.png"} alt="" width="25px" /></NavLink>
+                            <NavLink to="/" className="block mt-8 mx-5 lg:inline-block lg:mt-0 mr-4"><img src={process.env.PUBLIC_URL + "chat.png"} alt="" width="25px" /></NavLink>
                             <NavLink to="/" className="block mt-8 mx-5 lg:inline-block lg:mt-0 mr-4"><img src={process.env.PUBLIC_URL + "bell.png"} alt="" width="25px" /></NavLink>
                             {user == null && <NavLink to="/login" className="block mt-8 mx-5 lg:inline-block lg:mt-0 mr-4"><button className='bg-gradient-to-r from-purpleD to-purpleL px-4 py-2 rounded-xl text-white text-lg hover:-translate-y-1 duration-300'>Login</button></NavLink>}
                         </div>
