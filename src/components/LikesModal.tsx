@@ -1,32 +1,23 @@
-
-import { Avatar, Button } from '@chakra-ui/react';
-import {
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
-    ModalCloseButton,
-} from '@chakra-ui/react'
+import { Avatar, Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from '@chakra-ui/react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const FollowersModal = ({ isOpen, onClose, user }: any) => {
+const LikesModal = ({ isOpen, onClose, likes }: any) => {
+    console.log(likes)
     return (
         <div>
             <Modal isOpen={isOpen} onClose={onClose} >
                 <ModalOverlay />
                 <ModalContent >
-                    <ModalHeader>{user?.username}'s followers</ModalHeader>
+                    <ModalHeader>Post's likes</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody className='max-h-[600px] overflow-auto'>
-                        {user?.followers?.map((guy: any, i: number) => {
-                            return <Link to={`/profile/${guy?._id?.replace(/\s+/g, '').trim()}`} onClick={() => onClose()} key={i}>
+                        {likes.map((guy: any, i: number) => {
+                            return <Link to={`/profile/${guy?.user?._id?.replace(/\s+/g, '').trim()}`} onClick={() => onClose()} key={i}>
                                 <div className='border-b p-1 rounded flex items-center hover:bg-gray-300 hover:cursor-pointer duration-100 '>
-                                    <Avatar size='lg' src={guy?.profilePic !== "" && process.env.REACT_APP_API_URL + guy?.profilePic} />
+                                    <Avatar size='lg' src={guy?.user?.profilePic !== "" && process.env.REACT_APP_API_URL + guy?.user?.profilePic} />
                                     <div className='ml-3 flex flex-col'>
-                                        <span>@{guy?.username}</span>
-                                        <span className='text-gray-400'>{guy?.bio}</span>
+                                        <span>@{guy?.user?.username}</span>
                                     </div>
                                 </div>
                             </Link>
@@ -48,4 +39,4 @@ const FollowersModal = ({ isOpen, onClose, user }: any) => {
     );
 };
 
-export default FollowersModal;
+export default LikesModal;

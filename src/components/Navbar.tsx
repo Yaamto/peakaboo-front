@@ -24,10 +24,9 @@ const Navbar = ({ user, setUser, setIsAuth }: any) => {
 
     const handleLogout = () => {
         logout().then(() => navigate("/login"))
-        setUser(null)
+        // setUser(null)
         setIsAuth(false)
     }
-
     return (
         <>
             {location.pathname === "/register" || location.pathname === "/login" ? null :
@@ -45,7 +44,7 @@ const Navbar = ({ user, setUser, setIsAuth }: any) => {
                                     </div>
                                 </MenuButton>
                                 <MenuList>
-                                    <MenuItem onClick={() => navigate("/profile")}>Profile</MenuItem>
+                                    <MenuItem onClick={() => navigate(`/profile/${user?._id?.replace(/\s+/g, '').trim()}`)}>Profile</MenuItem>
                                     <MenuItem>Setting</MenuItem>
                                     <MenuItem onClick={handleLogout}>Logout</MenuItem>
                                 </MenuList>

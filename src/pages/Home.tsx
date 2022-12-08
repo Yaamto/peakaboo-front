@@ -30,12 +30,11 @@ const Home = ({ user, setUser }: any) => {
         })
     }
 
-
     return (
         <div className='h-full bg-gray-100 py-3'>
             <PostToAdd user={user} posts={posts} setPosts={setPosts} setLoading={setLoading} />
-            {posts.map((post) => {
-                return <Post post={post} loading={loading} />
+            {posts.map((post, i) => {
+                return <Post post={post} posts={posts} setPosts={setPosts} loading={loading} setLoading={setLoading} user={user} key={i} />
             })}
             <button onClick={loadPost} className="">Load more</button>
         </div>

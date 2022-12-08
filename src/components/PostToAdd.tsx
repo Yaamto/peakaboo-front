@@ -59,12 +59,12 @@ const PostToAdd = ({ user, posts, setPosts, setLoading }: any) => {
 
     return (
         <form id="post-form" action="" onSubmit={(e: React.FormEvent) => addPost(e, singlePost)}
-            className=" mb-2 w-full bg-white flex justify-center mx-auto rounded-lg h-auto flex-col lg:w-1/2 p-4 hover:shadow-2xl shadow-blue-500/50">
+            className=" mb-2 w-full bg-white flex justify-center mx-auto rounded-lg h-auto flex-col lg:w-2/5 p-4 hover:shadow-2xl shadow-blue-500/50">
             <div className='flex items-center'>
                 <Avatar size="lg" src={user?.profilePic !== "" && process.env.REACT_APP_API_URL + user?.profilePic} />
                 <span className='ml-2'>@{user?.username}</span>
             </div>
-            <input type="text" name='content' className='mx-4 my-4 px-2 py-1 border rounded-lg outline-none' onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSinglePost({ content: e.target.value, media: singlePost.media })} placeholder="Write something here...." />
+            <input type="text" name='content' className='bg-gray-100 mx-4 my-4 px-2 py-1 border rounded-2xl outline-none' onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSinglePost({ content: e.target.value, media: singlePost.media })} placeholder="Write something here...." />
             <label htmlFor="media" className='py-1 hover:cursor-pointer bg-purpleL w-36 text-center border border-purpleL rounded-lg text-white hover:bg-white hover:text-purpleL duration-300'>
                 {fileNumber > 0 ? fileNumber + " file(s) chosen" : "Choose file"}
             </label>

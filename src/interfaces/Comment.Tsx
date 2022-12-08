@@ -1,9 +1,11 @@
+import { IUser } from "./User";
+
 export interface IComment {
     post_id?: string,
-    user?: string,
+    user?: IUser,
     content?: string,
     _id?: string,
-    likes?: [],
+    likes?: IUser[],
     createdAt?: Date,
     updatedAt?: Date,
 }

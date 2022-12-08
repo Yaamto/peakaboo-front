@@ -8,7 +8,7 @@ export const login = async (data: IUser) => {
             credentials: "include",
             body: JSON.stringify({ email: data.email, password: data.password })
         })
-        console.log(response)
+
         const res = await response.json()
 
         return res.user as IUser
@@ -60,7 +60,7 @@ export const singleUser = async (id: any) => {
         })
 
         const res = await response.json()
-        console.log(res)
+
         return res
 
     } catch (err) {
@@ -75,7 +75,7 @@ export const follow = async (id: any) => {
             credentials: "include",
         })
         const res = await response.json()
-        console.log(res)
+
         return res
     } catch (err) {
         return err
@@ -89,9 +89,41 @@ export const unfollow = async (id: any) => {
             credentials: "include",
         })
         const res = await response.json()
-        console.log(res)
+
         return res
     } catch (err) {
         return err
     }
 }
+export const editProfilePic = async (data: any) => {
+    console.log(data[0])
+    let formData = new FormData()
+    formData.append('file', data[0])
+    try {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/user/addprofilepic`, {
+            method: "PUT",
+            credentials: "include",
+            body: formData
+        })
+        const res = await response.json()
+        return res
+    } catch (err) {
+        return err
+    }
+}
+export const editBio = async (data: any) => {
+    console.log(data)
+    try {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/user/editbio`, {
+            headers: { 'Content-Type': 'application/json' },
+            method: "PUT",
+            credentials: "include",
+            body: JSON.stringify({ bio: data })
+        })
+        const res = await response.json()
+        return res
+    } catch (err) {
+        return err
+    }
+}
+

@@ -47,3 +47,18 @@ export const singlePost = async (id: any) => {
 
     return res;
 }
+export const like = async (id: any) => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/post/likepost/${id}`, {
+            headers: { 'Content-Type': 'application/json' },
+            method: "POST",
+            credentials: "include",
+
+        })
+        const res = await response.json()
+        console.log(res.post)
+        return res
+    } catch (err) {
+        return err
+    }
+}

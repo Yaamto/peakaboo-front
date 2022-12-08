@@ -21,15 +21,14 @@ function App() {
   const [user, setUser] = useState<IUser | null>(null)
   const [isAuth, setIsAuth] = useState<Boolean>(false)
   const [loading, setLoading] = useState(true)
-
   useEffect(() => {
     getAuth().then((res) => {
       console.log(res.data)
       if (res.data) {
         setUser(res.data)
-        setLoading(false)
-        console.log(user)
+
       }
+      setLoading(false)
     })
   }, [isAuth])
 
@@ -45,12 +44,8 @@ function App() {
           <Route path="/" element={<Home user={user} setUser={setUser} />} />
           <Route path="/login" element={<Login isAuth={isAuth} setIsAuth={setIsAuth} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<ProtectedRoute><Profile user={user} /></ProtectedRoute>} />
-          <Route path="/profile/:id" element={<SingleUser me={user} />} />
-          <Route path="/post/:id" element={<SinglePost />} />
-
-
-
+          <Route path="/profile/:id" element={<SingleUser me={user} setMe={setUser} />} />
+          <Route path="/post/:id" element={<SinglePost user={user} />} />
         </Routes>
       </BrowserRouter>
     </ChakraProvider>
