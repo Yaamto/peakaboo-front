@@ -3,7 +3,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const LikesModal = ({ isOpen, onClose, likes }: any) => {
-    console.log(likes)
     return (
         <div>
             <Modal isOpen={isOpen} onClose={onClose} >

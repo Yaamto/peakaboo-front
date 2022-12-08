@@ -14,7 +14,6 @@ const Post = ({ post, key, setPost, loading, posts, setPosts, user }: any) => {
 
     useEffect(() => {
         post?.likes.map((like: any) => {
-            console.log(like?.user?._id === user?._id, post?.content)
             if (like?.user?._id === user?._id) {
                 return setIsLiked(true)
             }

@@ -15,7 +15,7 @@ const Home = ({ user, setUser }: any) => {
     const [page, setPage] = useState<number>(1)
     const [posts, setPosts] = useState<IPost[] | []>([])
     const [loading, setLoading] = useState<Boolean>(false)
-    console.log(posts)
+
 
     useEffect(() => {
         getFeed(page).then(res => setPosts(res))

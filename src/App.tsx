@@ -23,7 +23,7 @@ function App() {
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     getAuth().then((res) => {
-      console.log(res.data)
+
       if (res.data) {
         setUser(res.data)
 

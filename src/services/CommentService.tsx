@@ -8,7 +8,6 @@ export const comment = async (data: any, id: any) => {
 
         })
         const res = await response.json()
-        console.log(res)
         return res
     } catch (err) {
         return err
@@ -20,10 +19,9 @@ export const like = async (id: any) => {
             headers: { 'Content-Type': 'application/json' },
             method: "POST",
             credentials: "include",
-
         })
         const res = await response.json()
-        console.log(res)
+
         return res
     } catch (err) {
         return err
